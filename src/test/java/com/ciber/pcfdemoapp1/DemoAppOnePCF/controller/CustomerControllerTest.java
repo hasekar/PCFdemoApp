@@ -1,6 +1,7 @@
 package com.ciber.pcfdemoapp1.DemoAppOnePCF.controller;
 
 import com.ciber.pcfdemoapp1.DemoAppOnePCF.Entity.Customer;
+import com.ciber.pcfdemoapp1.DemoAppOnePCF.Entity.CustomerAddress;
 import com.ciber.pcfdemoapp1.DemoAppOnePCF.service.CustomerService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,10 +30,14 @@ public class CustomerControllerTest {
     @MockBean
     CustomerService customerService;
 
+
     @Test
     public void getCustomers() throws Exception {
 
-      when(customerService.getAllCustomers()).thenReturn(Arrays.asList(new Customer()));
+//      Customer customer1 = new Customer("Harish","Sekar");
+//      CustomerAddress customerAddress = new CustomerAddress("xyz","sdf","asdf",customer1);
+
+      when(customerService.getAllCustomers()).thenReturn(Arrays.asList(customer1));
 
       RequestBuilder request = MockMvcRequestBuilders
               .get("/customers")
@@ -40,7 +45,7 @@ public class CustomerControllerTest {
 
       mockMvc.perform(request)
               .andExpect(status().isOk())
-              .andExpect(content().json("[{\"customerAddress\":null,\"id\":0,\"first_NAME\":null,\"last_NAME\":null}]"))
+              .andExpect(content().json("[{\"customerAddress\":[{\"street\":\"xyz\",\"country\":\"sdf\",\"zipcode\":\"asdf\"}],\"id\":1,\"first_NAME\":\"Harish\",\"last_NAME\":\"Sekar\"}]"))
               .andReturn();
     }
 

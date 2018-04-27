@@ -22,7 +22,7 @@ public class DemoAppOnePcfApplication {
 	@Bean
 	CommandLineRunner init(CustomerDAO customerDAO, AddressDAO customerAddressDAO ) {
 		return (evt) -> Arrays.asList(
-						"jhoeller,dsyer,pwebb".split(","))
+						"jhoeller".split(","))
 						.forEach(
 										a -> {
 											Customer customer1 = customerDAO.save(new Customer("Harish","Sekar"));
