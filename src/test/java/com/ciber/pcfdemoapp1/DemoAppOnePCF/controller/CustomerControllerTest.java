@@ -36,7 +36,7 @@ public class CustomerControllerTest {
 
 //      Customer customer1 = new Customer("Harish","Sekar");
 //      CustomerAddress customerAddress = new CustomerAddress("xyz","sdf","asdf",customer1);
-//testing ci build
+//testing  ci build
       when(customerService.getAllCustomers()).thenReturn(Arrays.asList(customer1));
 
       RequestBuilder request = MockMvcRequestBuilders
