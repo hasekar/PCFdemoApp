@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'gradle build'
+                echo "Hello From Jenkins !!"
             }
         }
     }
