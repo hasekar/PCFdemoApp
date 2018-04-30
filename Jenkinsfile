@@ -3,7 +3,8 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                echo "Hello From Jenkins !!"
+                gradle clean
+                gradle build
             }
         }
     }
